@@ -1,0 +1,134 @@
+/* Базові змінні теми */
+:root{
+  --bg: #0f172a;           
+  --card: #111827;         
+  --text: #e5e7eb;         
+  --muted: #9ca3af;        
+  --primary: #3b82f6;      
+  --primary-hover: #2563eb;
+  --ring: rgba(59,130,246,.35);
+  --radius: 14px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --bg: #f8fafc;
+    --card: #ffffff;
+    --text: #0f172a;
+    --muted: #475569;
+  }
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 600px at 10% 0%, rgba(59,130,246,.06), transparent 60%),
+              radial-gradient(900px 500px at 100% 100%, rgba(16,185,129,.07), transparent 60%),
+              var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 40px 16px;
+}
+
+.card {
+  width: min(720px, 92vw);
+  background: color-mix(in oklab, var(--card), #ffffff 2%);
+  border: 1px solid color-mix(in oklab, var(--card), #ffffff 12%);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,.28),
+    0 1px 0 rgba(255,255,255,.02) inset;
+  backdrop-filter: blur(6px);
+}
+
+.h1 {
+  font-size: clamp(28px, 4vw, 36px);
+  line-height: 1.15;
+  margin: 0 0 10px;
+  letter-spacing: .2px;
+}
+.lead {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.btn {
+  border: 1px solid color-mix(in oklab, var(--primary), #000 35%);
+  background: linear-gradient(180deg, var(--primary), var(--primary-hover));
+  color: white;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform .06s ease-in-out, box-shadow .15s;
+  box-shadow: 0 6px 16px rgba(59,130,246,.35);
+}
+.btn:active { transform: translateY(1px) scale(.995); }
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--ring);
+}
+
+.lang-select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid color-mix(in oklab, var(--card), #ffffff 16%);
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--card), #ffffff 6%), var(--card)) padding-box,
+    linear-gradient(180deg, rgba(255,255,255,.15), rgba(0,0,0,.15)) border-box;
+  color: var(--text);
+  padding: 10px 40px 10px 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(0,0,0,.15);
+  min-width: 180px;
+  position: relative;
+}
+
+.lang-select {
+  background-image:
+    linear-gradient(180deg, color-mix(in oklab, var(--card), #ffffff 6%), var(--card)),
+    linear-gradient(180deg, rgba(255,255,255,.15), rgba(0,0,0,.15)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%23a1a1aa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 0 0, 0 0, right 10px center;
+  background-size: auto, auto, 18px;
+}
+
+.helper {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--card), #ffffff 18%);
+  background: color-mix(in oklab, var(--card), #ffffff 4%);
+  font-size: 13px;
+}
+.badge-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--primary);
+}
+
